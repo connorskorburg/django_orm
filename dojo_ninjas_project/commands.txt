@@ -18,3 +18,4 @@ Ninja.objects.create(dojo=dojo_3, first_name="Tyler", last_name="Wellington")
 Dojo.objects.first().ninjas.all()
 Dojo.objects.last().ninjas.all()
 Ninja.objects.last().dojo
+dojo_4 = Dojo.objects.create(name="Jim's Dojo", city="Houston", state="Texas", desc="New Dojo")
