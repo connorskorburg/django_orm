@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Books</title>
+</head>
+<body>
+    <h1>{{author_view.first_name}} {{author_view.last_name}}</h1>
+    <h2>ID: {{author_view.id}}</h2>
+    <h2>Notes: {{author_view.notes}}</h2>
+    <br>
+    <h2>Books:</h2>
+    <ul>
+        {% for current_book in current_books %}
+            <li>{{current_book.title}}</li>
+        {% endfor %}
+    </ul> 
+    <form action="/add_book_to_author" method="POST">
+        {% csrf_token %}
+        <select name="book_added">
+            <option>-select a book-</option>
+            {% for book_added in all_author_books %}
+            <option name="book_added" value='{{book_added.id}}'>{{book_added.title}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" value="select">Add</button>
+    </form>
+</body>
+</html>
